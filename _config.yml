@@ -21,7 +21,7 @@ title_separator          : "-"
 name                     : "Detai Kong"
 description              : "Fashion Computer Geek and hacker!"
 url                      : "https://kongdetai.github.io"  # the base hostname & protocol for your site e.g. 
-baseurl                  : "/blog" # the subpath of your site, e.g. "/blog"
+baseurl                  : # the subpath of your site, e.g. "/blog"
 repository               : "kongdetai/kongdetai.github.io"  # GitHub username/repo-name e.g. 
 teaser                   : # path of fallback teaser image, e.g. "/assets/images/500x300.png"
 # breadcrumbs            : false # true, false (default)

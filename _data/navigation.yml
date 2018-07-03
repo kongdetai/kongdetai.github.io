@@ -1,14 +1,14 @@
 # main links
 main:
   - title: "Home Page"
-    url: https://kongdetai.github.io/docs/quick-start-guide/
+    url: https://kongdetai.github.io
   - title: "Education"
-    url: https://mmistakes.github.io/minimal-mistakes/about/
+    url: https://kongdetai.github.io
   - title: "Portfolio"
-    url: /year-archive/
+    url: https://kongdetai.github.io
   - title: "Research"
-    url: /collection-archive/
+    url: https://kongdetai.github.io
   - title: "Travel"
-    url: /sitemap/
+    url: https://kongdetai.github.io
   - title: "Terms and Privacy Policy"
-    url: /sitemap/
+    url: https://kongdetai.github.io
