@@ -1,12 +1,14 @@
 # main links
 main:
-  - title: "Machine Learning Tutorials"
-    url: https://kongdetai.github.io/minimal-mistakes/docs/quick-start-guide/
-  - title: "About"
+  - title: "Home Page"
+    url: https://kongdetai.github.io/docs/quick-start-guide/
+  - title: "Education"
     url: https://mmistakes.github.io/minimal-mistakes/about/
-  - title: "Sample Posts"
+  - title: "Portfolio"
     url: /year-archive/
-  - title: "About"
+  - title: "Research"
     url: /collection-archive/
-  - title: "Sitemap"
+  - title: "Travel"
+    url: /sitemap/
+  - title: "Terms and Privacy Policy"
     url: /sitemap/
