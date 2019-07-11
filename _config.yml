@@ -19,10 +19,10 @@ locale                   : "en-US"
 title                    : "Detai's Blog"
 title_separator          : "-"
 name                     : "Detai Kong"
-description              : "Fashion Computer Geek and hacker!"
-url                      : "https://kongdetai.github.io"  # the base hostname & protocol for your site e.g. 
+description              : "Passion Computer Geek and hacker!"
+url                      : "https://kongdetai.github.io"  # the base hostname & protocol for your site e.g.
 baseurl                  : # the subpath of your site, e.g. "/blog"
-repository               : "kongdetai/kongdetai.github.io"  # GitHub username/repo-name e.g. 
+repository               : "kongdetai/kongdetai.github.io"  # GitHub username/repo-name e.g.
 teaser                   : # path of fallback teaser image, e.g. "/assets/images/500x300.png"
 # breadcrumbs            : false # true, false (default)
 words_per_minute         : 200
@@ -101,8 +101,8 @@ analytics:
 # Site Author
 author:
   name             : "Detai Kong"
-  avatar           : "/assets/images/logo.jpg" # path of avatar image, e.g. 
-  bio              : "Fashion Computer Geek and hacker!"
+  avatar           : "/assets/images/logo.jpg" # path of avatar image, e.g.
+  bio              : "Passion Computer Geek and hacker!"
   location         : "Hangzhou, China"
   email            : "kongdetai@gmail.com"
   uri              : "https://kongdetai.github.io"
