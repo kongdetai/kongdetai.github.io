@@ -1,14 +1,14 @@
 # main links
 main:
-  - title: "Home Page"
-    url: https://kongdetai.github.io
-  - title: "Education"
-    url: https://kongdetai.github.io
-  - title: "Portfolio"
-    url: https://kongdetai.github.io
-  - title: "Research"
-    url: https://kongdetai.github.io
-  - title: "Travel"
-    url: https://kongdetai.github.io
-  - title: "Terms and Privacy Policy"
-    url: https://kongdetai.github.io
+  - title: "首页"
+    url: /
+  - title: "最新日志"
+    url: /#latest-logs
+  - title: "历史归档"
+    url: /archive/
+  - title: "分类"
+    url: /categories/
+  - title: "标签"
+    url: /tags/
+  - title: "自动化"
+    url: /#ai-workflow
