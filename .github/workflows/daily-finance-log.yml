@@ -1,0 +1,41 @@
+name: Daily finance log
+
+on:
+  schedule:
+    # 09:00 Asia/Shanghai every day.
+    - cron: "0 1 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout site and skill
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          submodules: recursive
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+
+      - name: Generate today's finance log
+        run: python3 scripts/generate_daily_finance_log.py
+
+      - name: Commit generated log
+        run: |
+          if [[ -z "$(git status --porcelain _posts)" ]]; then
+            echo "No finance log changes to commit."
+            exit 0
+          fi
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add _posts/
+          git commit -m "chore: add daily finance log $(TZ=Asia/Shanghai date +%F)"
+          git push
