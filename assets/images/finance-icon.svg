@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="AI finance log icon">
+  <defs>
+    <linearGradient id="bg" x1="64" y1="64" x2="448" y2="448" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#07111f"/>
+      <stop offset="1" stop-color="#050914"/>
+    </linearGradient>
+    <linearGradient id="line" x1="128" y1="344" x2="390" y2="146" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#55e7ff"/>
+      <stop offset="1" stop-color="#37f29a"/>
+    </linearGradient>
+  </defs>
+  <rect width="512" height="512" rx="112" fill="url(#bg)"/>
+  <path d="M92 356h328" stroke="#19344b" stroke-width="18" stroke-linecap="round"/>
+  <path d="M126 326l70-78 66 48 104-142" fill="none" stroke="url(#line)" stroke-width="28" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="126" cy="326" r="24" fill="#55e7ff"/>
+  <circle cx="196" cy="248" r="24" fill="#37f29a"/>
+  <circle cx="262" cy="296" r="24" fill="#55e7ff"/>
+  <circle cx="366" cy="154" r="24" fill="#37f29a"/>
+  <path d="M156 116h200" stroke="#55e7ff" stroke-width="16" stroke-linecap="round" opacity=".45"/>
+  <path d="M156 156h124" stroke="#37f29a" stroke-width="16" stroke-linecap="round" opacity=".35"/>
+</svg>

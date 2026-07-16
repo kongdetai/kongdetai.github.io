@@ -1,0 +1,19 @@
+{
+  "name": "每日财经日志",
+  "short_name": "财经日志",
+  "description": "每天 9 点自动生成的 AI 财经研究日志。",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#050914",
+  "theme_color": "#050914",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/assets/images/finance-icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
