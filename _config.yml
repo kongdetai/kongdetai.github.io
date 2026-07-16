@@ -15,11 +15,11 @@ remote_theme             : "mmistakes/minimal-mistakes"
 minimal_mistakes_skin    : "dark" # "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
 
 # Site Settings
-locale                   : "en-US"
-title                    : "Detai's Blog"
+locale                   : "zh-CN"
+title                    : "每日财经日志"
 title_separator          : "-"
-name                     : "Detai Kong"
-description              : "Passion Computer Geek and hacker!"
+name                     : "郑希视角财经日志"
+description              : "每天 9 点自动生成的公开财经信息记录与郑希方法框架观察。"
 url                      : "https://kongdetai.github.io"  # the base hostname & protocol for your site e.g.
 baseurl                  : # the subpath of your site, e.g. "/blog"
 repository               : "kongdetai/kongdetai.github.io"  # GitHub username/repo-name e.g.
@@ -27,7 +27,7 @@ teaser                   : # path of fallback teaser image, e.g. "/assets/images
 # breadcrumbs            : false # true, false (default)
 words_per_minute         : 200
 comments:
-  provider               : "disqus" # false (default), "disqus", "discourse", "facebook", "google-plus", "staticman", "staticman_v2" "custom"
+  provider               : false # false (default), "disqus", "discourse", "facebook", "google-plus", "staticman", "staticman_v2" "custom"
   disqus:
     shortname            : "kongdetai" # https://help.disqus.com/customer/portal/articles/466208-what-s-a-shortname-
   discourse:
@@ -100,9 +100,9 @@ analytics:
 
 # Site Author
 author:
-  name             : "Detai Kong"
+  name             : "每日财经日志"
   avatar           : "/assets/images/logo.jpg" # path of avatar image, e.g.
-  bio              : "Passion Computer Geek and hacker!"
+  bio              : "记录润泽科技、科创50ETF、创业板ETF、赛力斯、比亚迪的每日财经观察。"
   location         : "Shanghai, China"
   email            : "kongdetai@gmail.com"
   uri              : "https://kongdetai.github.io"
@@ -199,7 +199,7 @@ sass:
 permalink: /:categories/:title/
 paginate: 5 # amount of posts to show
 paginate_path: /page:num/
-timezone: # https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+timezone: Asia/Shanghai # https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 
 
 # Plugins (previously gems:)
@@ -266,6 +266,6 @@ defaults:
       layout: single
       author_profile: true
       read_time: true
-      comments: # true
+      comments: false
       share: true
       related: true
