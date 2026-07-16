@@ -110,10 +110,10 @@ INSTRUMENTS = [
 ]
 
 INDEXES = [
-    ("上证指数", "1.000001"),
-    ("深证成指", "0.399001"),
-    ("创业板指", "0.399006"),
-    ("科创50", "1.000688"),
+    ("上证指数", "1.000001", "sh000001"),
+    ("深证成指", "0.399001", "sz399001"),
+    ("创业板指", "0.399006", "sz399006"),
+    ("科创50", "1.000688", "sh000688"),
 ]
 
 
@@ -199,7 +199,10 @@ def fetch_eastmoney(secids: list[str]) -> tuple[dict[str, dict[str, Any]], str]:
     )
     try:
         payload = extract_json(request_text(url, headers={"Referer": "https://quote.eastmoney.com/"}))
-        items = payload.get("data", {}).get("diff") or []
+        data = payload.get("data") or {}
+        items = data.get("diff") or []
+        if not items:
+            return {}, "unavailable: no data"
         quotes: dict[str, dict[str, Any]] = {}
         for item in items:
             code = str(item.get("f12", ""))
@@ -244,6 +247,11 @@ def fetch_tencent(symbols: list[str]) -> tuple[dict[str, dict[str, Any]], str]:
                 continue
             code = match.group(2)
             parts = match.group(3).split("~")
+            amount_from_combo = None
+            if len(parts) > 35:
+                combo = parts[35].split("/")
+                if len(combo) >= 3:
+                    amount_from_combo = safe_float(combo[2])
             quotes[code] = {
                 "source": "腾讯股票",
                 "name": parts[1] if len(parts) > 1 else None,
@@ -252,7 +260,7 @@ def fetch_tencent(symbols: list[str]) -> tuple[dict[str, dict[str, Any]], str]:
                 "prev_close": safe_float(parts[4] if len(parts) > 4 else None),
                 "open": safe_float(parts[5] if len(parts) > 5 else None),
                 "volume": safe_float(parts[6] if len(parts) > 6 else None),
-                "amount": safe_float(parts[37] if len(parts) > 37 else None),
+                "amount": amount_from_combo or safe_float(parts[37] if len(parts) > 37 else None),
                 "pct": safe_float(parts[32] if len(parts) > 32 else None),
                 "high": safe_float(parts[33] if len(parts) > 33 else None),
                 "low": safe_float(parts[34] if len(parts) > 34 else None),
@@ -456,7 +464,7 @@ def build_source_status(statuses: dict[str, str]) -> str:
 
 def build_market_table(index_quotes: dict[str, dict[str, Any]]) -> str:
     rows = ["| 指数 | 最新 | 涨跌幅 | 成交额 | 状态 |", "|---|---:|---:|---:|---|"]
-    for name, secid in INDEXES:
+    for name, secid, _ in INDEXES:
         code = secid.split(".")[-1]
         quote_data = index_quotes.get(code, {})
         pct = safe_float(quote_data.get("pct"))
@@ -583,9 +591,11 @@ def main() -> int:
         return 1
 
     now = datetime.now(TZ)
-    all_secids = [item.eastmoney_secid for item in INSTRUMENTS] + [secid for _, secid in INDEXES]
+    all_secids = [item.eastmoney_secid for item in INSTRUMENTS] + [secid for _, secid, _ in INDEXES]
     eastmoney_quotes, eastmoney_status = fetch_eastmoney(all_secids)
-    tencent_quotes, tencent_status = fetch_tencent([item.tencent_symbol for item in INSTRUMENTS])
+    tencent_quotes, tencent_status = fetch_tencent(
+        [item.tencent_symbol for item in INSTRUMENTS] + [symbol for _, _, symbol in INDEXES]
+    )
     sina_quotes, sina_status = fetch_sina([item.sina_symbol for item in INSTRUMENTS])
     xueqiu_quotes, xueqiu_status = fetch_xueqiu([item.xueqiu_symbol for item in INSTRUMENTS])
 
@@ -596,7 +606,11 @@ def main() -> int:
         sina=sina_quotes,
         xueqiu=xueqiu_quotes,
     )
-    index_quotes = {code: value for code, value in eastmoney_quotes.items() if code in {s.split(".")[-1] for _, s in INDEXES}}
+    index_codes = {secid.split(".")[-1] for _, secid, _ in INDEXES}
+    index_quotes = {
+        code: tencent_quotes.get(code) or eastmoney_quotes.get(code) or {}
+        for code in index_codes
+    }
 
     statuses = {
         "东方财富": eastmoney_status,

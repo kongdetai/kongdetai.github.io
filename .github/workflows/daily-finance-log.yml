@@ -25,7 +25,7 @@ jobs:
           python-version: "3.x"
 
       - name: Generate today's finance log
-        run: python scripts/generate_daily_finance_log.py
+        run: python3 scripts/generate_daily_finance_log.py
 
       - name: Commit generated log
         run: |
