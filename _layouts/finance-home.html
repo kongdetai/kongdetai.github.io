@@ -1,0 +1,138 @@
+---
+layout: default
+---
+
+{% assign latest_post = site.posts.first %}
+
+<main class="finance-home" id="main" role="main">
+  <section class="finance-hero">
+    <div class="finance-hero__content">
+      <p class="eyebrow">AI Finance Research Log</p>
+      <h1>每日财经日志</h1>
+      <p class="finance-hero__lead">
+        每天 9 点自动读取公开行情与财经信息，用郑希方法框架记录润泽科技、科创50ETF、创业板ETF、赛力斯、比亚迪的市场观察。
+      </p>
+      <div class="finance-hero__actions">
+        {% if latest_post %}
+          <a class="btn btn--primary" href="{{ latest_post.url | relative_url }}">查看最新日志</a>
+        {% endif %}
+        <a class="btn btn--ghost" href="{{ '/archive/' | relative_url }}">历史归档</a>
+      </div>
+    </div>
+
+    <div class="finance-hero__panel" aria-label="daily automation status">
+      <div class="panel-orbit"></div>
+      <div class="terminal-card">
+        <span class="terminal-card__dot"></span>
+        <span class="terminal-card__dot"></span>
+        <span class="terminal-card__dot"></span>
+        <p class="terminal-card__label">AUTO PIPELINE</p>
+        <strong>09:00 Asia/Shanghai</strong>
+        <span>/zhengxi-views</span>
+      </div>
+      <div class="signal-grid">
+        <span>雪球</span>
+        <span>腾讯股票</span>
+        <span>新浪财经</span>
+        <span>东方财富</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="metric-strip" aria-label="site highlights">
+    <div class="metric-card">
+      <span>跟踪标的</span>
+      <strong>5</strong>
+      <em>股票 / ETF</em>
+    </div>
+    <div class="metric-card">
+      <span>更新频率</span>
+      <strong>每日</strong>
+      <em>09:00 自动生成</em>
+    </div>
+    <div class="metric-card">
+      <span>研究框架</span>
+      <strong>郑希</strong>
+      <em>景气周期 / 科技通胀</em>
+    </div>
+    <div class="metric-card">
+      <span>内容形态</span>
+      <strong>日志</strong>
+      <em>可复盘、可检索</em>
+    </div>
+  </section>
+
+  <section class="finance-section">
+    <div class="section-heading">
+      <p class="eyebrow">Watchlist</p>
+      <h2>核心跟踪池</h2>
+      <p>围绕 AI 算力、硬科技、新能源车和成长宽基，按景气度、流动性、预期变化与风险暴露持续记录。</p>
+    </div>
+
+    <div class="watch-grid">
+      <article class="watch-card watch-card--accent">
+        <span class="watch-card__code">300442</span>
+        <h3>润泽科技</h3>
+        <p>AI 算力基础设施与数据中心需求，观察资本开支、订单兑现和现金流质量。</p>
+      </article>
+      <article class="watch-card">
+        <span class="watch-card__code">588000</span>
+        <h3>科创50ETF</h3>
+        <p>半导体、AI 与硬科技 Beta，适合观察国产替代与科技周期共振。</p>
+      </article>
+      <article class="watch-card">
+        <span class="watch-card__code">159915</span>
+        <h3>创业板ETF</h3>
+        <p>成长宽基工具，覆盖新能源、医药、成长制造等多条产业线索。</p>
+      </article>
+      <article class="watch-card">
+        <span class="watch-card__code">601127</span>
+        <h3>赛力斯</h3>
+        <p>智能电动车与车型周期，重点跟踪销量结构、渠道库存和盈利质量。</p>
+      </article>
+      <article class="watch-card">
+        <span class="watch-card__code">002594</span>
+        <h3>比亚迪</h3>
+        <p>新能源车、电池与出海制造优势，关注规模化后利润弹性和技术迭代。</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="finance-section split-section" id="ai-workflow">
+    <div class="method-card">
+      <p class="eyebrow">Method</p>
+      <h2>郑希视角如何落地</h2>
+      <ol>
+        <li>先判断全球技术/需求变化是否形成产业景气周期。</li>
+        <li>再寻找产业链中可能持续涨价或利润上修的环节。</li>
+        <li>最后用中国比较优势、流动性、ROE 修复弹性和退出纪律校验。</li>
+      </ol>
+    </div>
+    <div class="method-card method-card--glow">
+      <p class="eyebrow">AI Workflow</p>
+      <h2>自动日志流水线</h2>
+      <p>
+        GitHub Actions 每天定时执行生成器，调用仓库内安装的 zhengxi-views skill 语料与方法框架，并把新文章写入 Jekyll `_posts`。
+      </p>
+    </div>
+  </section>
+
+  <section class="finance-section" id="latest-logs">
+    <div class="section-heading">
+      <p class="eyebrow">Latest Logs</p>
+      <h2>最新财经日志</h2>
+    </div>
+
+    <div class="log-list">
+      {% for post in site.posts limit:5 %}
+        <article class="log-card">
+          <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%Y-%m-%d" }}</time>
+          <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
+          {% if post.excerpt %}
+            <p>{{ post.excerpt | markdownify | strip_html | truncate: 120 }}</p>
+          {% endif %}
+        </article>
+      {% endfor %}
+    </div>
+  </section>
+</main>
