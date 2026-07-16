@@ -18,6 +18,11 @@ layout: default
         {% endif %}
         <a class="btn btn--ghost" href="{{ '/archive/' | relative_url }}">历史归档</a>
       </div>
+      <nav class="quick-nav" aria-label="homepage quick navigation">
+        <a href="#watchlist">跟踪池</a>
+        <a href="#ai-workflow">AI 流程</a>
+        <a href="#latest-logs">最新日志</a>
+      </nav>
     </div>
 
     <div class="finance-hero__panel" aria-label="daily automation status">
@@ -37,6 +42,19 @@ layout: default
         <span>东方财富</span>
       </div>
     </div>
+  </section>
+
+  <section class="market-tape" aria-label="tracked symbols">
+    <span>AI 算力</span>
+    <strong>润泽科技 300442</strong>
+    <span>硬科技 Beta</span>
+    <strong>科创50ETF 588000</strong>
+    <span>成长宽基</span>
+    <strong>创业板ETF 159915</strong>
+    <span>智能电动车</span>
+    <strong>赛力斯 601127</strong>
+    <span>新能源龙头</span>
+    <strong>比亚迪 002594</strong>
   </section>
 
   <section class="metric-strip" aria-label="site highlights">
@@ -62,7 +80,7 @@ layout: default
     </div>
   </section>
 
-  <section class="finance-section">
+  <section class="finance-section" id="watchlist">
     <div class="section-heading">
       <p class="eyebrow">Watchlist</p>
       <h2>核心跟踪池</h2>
@@ -73,26 +91,31 @@ layout: default
       <article class="watch-card watch-card--accent">
         <span class="watch-card__code">300442</span>
         <h3>润泽科技</h3>
+        <strong class="watch-card__tag">AI Infra</strong>
         <p>AI 算力基础设施与数据中心需求，观察资本开支、订单兑现和现金流质量。</p>
       </article>
       <article class="watch-card">
         <span class="watch-card__code">588000</span>
         <h3>科创50ETF</h3>
+        <strong class="watch-card__tag">Hard Tech</strong>
         <p>半导体、AI 与硬科技 Beta，适合观察国产替代与科技周期共振。</p>
       </article>
       <article class="watch-card">
         <span class="watch-card__code">159915</span>
         <h3>创业板ETF</h3>
+        <strong class="watch-card__tag">Growth Beta</strong>
         <p>成长宽基工具，覆盖新能源、医药、成长制造等多条产业线索。</p>
       </article>
       <article class="watch-card">
         <span class="watch-card__code">601127</span>
         <h3>赛力斯</h3>
+        <strong class="watch-card__tag">Smart EV</strong>
         <p>智能电动车与车型周期，重点跟踪销量结构、渠道库存和盈利质量。</p>
       </article>
       <article class="watch-card">
         <span class="watch-card__code">002594</span>
         <h3>比亚迪</h3>
+        <strong class="watch-card__tag">Global EV</strong>
         <p>新能源车、电池与出海制造优势，关注规模化后利润弹性和技术迭代。</p>
       </article>
     </div>
